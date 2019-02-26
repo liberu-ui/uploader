@@ -2,7 +2,8 @@
     <renderless-uploader v-bind="$attrs"
         v-on="$listeners">
         <template v-slot:default="{ label, inputBindings, inputEvents, controlEvents }">
-            <form @submit.prevent>
+            <form class="is-marginless"
+                @submit.prevent>
                 <input class="is-hidden"
                     v-bind="inputBindings"
                     v-on="inputEvents">
