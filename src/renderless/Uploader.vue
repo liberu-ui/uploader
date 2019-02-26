@@ -28,7 +28,6 @@ export default {
     },
 
     data: () => ({
-        input: null,
         formData: new FormData(),
         succesfull: 0,
     }),
@@ -39,11 +38,14 @@ export default {
                 ? this.i18n('File(s)')
                 : this.i18n('File');
         },
+        input() {
+            return !!this.$el && this.$el.querySelector('input');
+        },
     },
 
     methods: {
         browseFiles() {
-            this.$refs.querySelector('input').click();
+            this.input.click();
         },
         upload() {
             this.$emit('upload-start');
@@ -71,7 +73,7 @@ export default {
             });
         },
         setFormData() {
-            const { files } = this.$refs.input;
+            const { files } = this.input;
             this.addFiles(files);
 
             if (this.succesfull > 0) {
@@ -130,15 +132,15 @@ export default {
             upload: this.upload,
             inputBindings: {
                 multiple: this.multiple,
-                type: 'file'
+                type: 'file',
             },
             inputEvents: {
-                change: this.upload
+                change: this.upload,
             },
             controlEvents: {
-                click: this.browseFiles
-            }
-        })
-    }
+                click: this.browseFiles,
+            },
+        });
+    },
 };
 </script>
