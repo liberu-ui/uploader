@@ -8,6 +8,8 @@
 import Uploader from './Uploader.vue';
 
 export default {
+    name: 'Uploader',
+
     components: { Uploader },
 };
 </script>

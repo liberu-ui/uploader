@@ -1,5 +1,5 @@
 <template>
-    <renderless-uploader v-bind="$attrs"
+    <core-uploader v-bind="$attrs"
         v-on="$listeners">
         <template v-slot:default="{ label, inputBindings, inputEvents, controlEvents }">
             <form class="is-marginless"
@@ -23,18 +23,21 @@
                 </slot>
             </form>
         </template>
-    </renderless-uploader>
+    </core-uploader>
 </template>
 
 <script>
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
-import RenderlessUploader from '../renderless/Uploader.vue';
+import CoreUploader from '../renderless/Uploader.vue';
 
 library.add(faUpload);
 
 export default {
-    components: { RenderlessUploader },
+    name: 'Uploader',
+
+    components: { CoreUploader },
+
     props: {
         isLarge: {
             type: Boolean,
