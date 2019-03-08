@@ -1,5 +1,5 @@
 <template>
-    <uploader :i18n="__"
+    <uploader :i18n="i18n"
         v-bind="$attrs"
         v-on="$listeners"/>
 </template>
@@ -11,5 +11,7 @@ export default {
     name: 'Uploader',
 
     components: { Uploader },
+
+    inject: ['i18n'],
 };
 </script>

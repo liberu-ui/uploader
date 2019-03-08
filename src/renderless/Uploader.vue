@@ -1,5 +1,9 @@
 <script>
 export default {
+    name: 'Uploader',
+
+    inject: ['errorHandler'],
+
     props: {
         fileKey: {
             type: String,
@@ -69,7 +73,7 @@ export default {
                     return;
                 }
 
-                this.handleError(error);
+                this.errorHandler(error);
             });
         },
         setFormData() {
