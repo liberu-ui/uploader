@@ -1,6 +1,6 @@
 <script>
 export default {
-    name: 'Uploader',
+    name: 'CoreUploader',
 
     inject: ['errorHandler'],
 

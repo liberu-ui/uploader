@@ -8,7 +8,7 @@
 import Uploader from './Uploader.vue';
 
 export default {
-    name: 'Uploader',
+    name: 'EnsoUploader',
 
     components: { Uploader },
 
