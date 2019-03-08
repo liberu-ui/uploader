@@ -2,7 +2,7 @@
   "name": "@enso-ui/uploader",
   "version": "1.0.5",
   "description": "File Uploader",
-  "main": "index.js",
+  "main": "bulma/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
