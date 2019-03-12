@@ -1,7 +1,8 @@
 <template>
     <uploader :i18n="i18n"
         v-bind="$attrs"
-        v-on="$listeners"/>
+        v-on="$listeners"
+        ref="uploader"/>
 </template>
 
 <script>
@@ -13,5 +14,11 @@ export default {
     components: { Uploader },
 
     inject: ['i18n'],
+
+    methods: {
+        browseFiles() {
+            this.$refs.uploader.browseFiles();
+        },
+    }
 };
 </script>

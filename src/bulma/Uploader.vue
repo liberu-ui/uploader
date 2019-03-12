@@ -1,6 +1,7 @@
 <template>
     <core-uploader v-bind="$attrs"
-        v-on="$listeners">
+        v-on="$listeners"
+        ref="uploader">
         <template v-slot:default="{ label, inputBindings, inputEvents, controlEvents }">
             <form class="is-marginless"
                 @submit.prevent>
@@ -48,5 +49,11 @@ export default {
             default: false,
         },
     },
+
+    methods: {
+        browseFiles() {
+            this.$refs.uploader.browseFiles();
+        },
+    }
 };
 </script>
