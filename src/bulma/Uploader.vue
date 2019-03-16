@@ -9,7 +9,7 @@
                     v-on="inputEvents">
                 <slot name="control"
                     :control-events="controlEvents">
-                    <a :class="[{'is-small': isSmall}, {'is-large': isLarge}]"
+                    <a :class="['file', {'is-small': isSmall}, {'is-large': isLarge}]"
                         v-on="controlEvents">
                         <span class="file-cta">
                             <span class="file-icon">
