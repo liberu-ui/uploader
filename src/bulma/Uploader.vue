@@ -10,9 +10,9 @@
                     v-on="inputEvents">
                 <slot name="control"
                     :control-events="controlEvents">
-                    <a :class="['file', {'is-small': isSmall}, {'is-large': isLarge}, {'is-rounded': isRounded}]"
+                    <a :class="['file', {'is-small': isSmall}, {'is-large': isLarge}]"
                         v-on="controlEvents">
-                        <span class="file-cta">
+                        <span :class="['file-cta', {'is-rounded': isRounded}]">
                             <span class="file-icon">
                                 <fa icon="upload"/>
                             </span>
