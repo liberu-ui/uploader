@@ -10,7 +10,7 @@
                     v-on="inputEvents">
                 <slot name="control"
                     :control-events="controlEvents">
-                    <a :class="['file', {'is-small': isSmall}, {'is-large': isLarge}]"
+                    <a :class="['file', {'is-small': isSmall}, {'is-large': isLarge}, {'is-rounded': isRounded}]"
                         v-on="controlEvents">
                         <span class="file-cta">
                             <span class="file-icon">
@@ -44,6 +44,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        isRounded: {
+            type: Boolean,
+            default: false,
+        },
         isSmall: {
             type: Boolean,
             default: false,
@@ -54,6 +58,12 @@ export default {
         browseFiles() {
             this.$refs.uploader.browseFiles();
         },
-    }
+    },
 };
 </script>
+
+<style lang="scss">
+    .file-cta.is-rounded {
+        border-radius: 290486px;
+    }
+</style>
