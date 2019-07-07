@@ -29,6 +29,10 @@ export default {
             type: String,
             required: true,
         },
+        compact: {
+            type: Boolean,
+            default: false,
+        },
     },
 
     data: () => ({
@@ -134,6 +138,7 @@ export default {
             label: this.label,
             multiple: this.multiple,
             upload: this.upload,
+            compact: this.compact,
             inputBindings: {
                 multiple: this.multiple,
                 type: 'file',

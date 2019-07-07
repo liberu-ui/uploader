@@ -2,7 +2,7 @@
     <core-uploader v-bind="$attrs"
         v-on="$listeners"
         ref="uploader">
-        <template v-slot:default="{ label, inputBindings, inputEvents, controlEvents }">
+        <template v-slot:default="{ label, compact, inputBindings, inputEvents, controlEvents }">
             <form class="is-marginless"
                 @submit.prevent>
                 <input class="is-hidden"
@@ -49,10 +49,6 @@ export default {
             default: false,
         },
         isSmall: {
-            type: Boolean,
-            default: false,
-        },
-        compact: {
             type: Boolean,
             default: false,
         },
