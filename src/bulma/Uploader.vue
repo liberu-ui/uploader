@@ -16,7 +16,7 @@
                             <span class="file-icon">
                                 <fa icon="upload"/>
                             </span>
-                            <span>
+                            <span v-if="!compact">
                                 {{ label }}…
                             </span>
                         </span>
@@ -49,6 +49,10 @@ export default {
             default: false,
         },
         isSmall: {
+            type: Boolean,
+            default: false,
+        },
+        compact: {
             type: Boolean,
             default: false,
         },
