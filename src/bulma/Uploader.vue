@@ -13,11 +13,11 @@
                     <a :class="['file', {'is-small': isSmall}, {'is-large': isLarge}]"
                         v-on="controlEvents">
                         <span :class="['file-cta', {'is-rounded': isRounded}]">
-                            <span class="file-icon">
-                                <fa icon="upload"/>
-                            </span>
-                            <span v-if="!compact">
+                            <span class="has-margin-right-small" v-if="!compact">
                                 {{ label }}…
+                            </span>
+                            <span class="file-icon is-marginless">
+                                <fa icon="upload"/>
                             </span>
                         </span>
                     </a>
