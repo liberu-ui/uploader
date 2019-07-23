@@ -54,6 +54,7 @@ export default {
     methods: {
         browseFiles() {
             this.input.click();
+            this.$emit('open-file-browser');
         },
         upload() {
             this.$emit('upload-start');
