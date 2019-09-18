@@ -30,7 +30,7 @@
 <script>
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
-import CoreUploader from '../renderless/Uploader.vue';
+import CoreUploader from '../renderless/CoreUploader.vue';
 
 library.add(faUpload);
 

@@ -1,3 +1,3 @@
-import Uploader from '../src/renderless/Uploader.vue';
+import CoreUploader from '../src/renderless/CoreUploader.vue';
 
-export default Uploader;
+export default CoreUploader;
