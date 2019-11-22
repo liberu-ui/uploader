@@ -1,4 +1,6 @@
 <script>
+import formatBytes from '../helpers/formatBytes';
+
 export default {
     name: 'CoreUploader',
 
@@ -11,7 +13,7 @@ export default {
         },
         fileSizeLimit: {
             type: Number,
-            default: 20000000,
+            default: 20 * 1024 * 1024,
         },
         i18n: {
             type: Function,
@@ -121,7 +123,9 @@ export default {
         },
         sizeCheckPasses(file) {
             if (file.size > this.fileSizeLimit) {
-                this.$toastr.warning(`File size Limit of ${this.fileSizeLimit} Kb exceeded by ${file.name}`);
+                this.$toastr.warning(
+                    `File size Limit of ${formatBytes(this.fileSizeLimit, 2)} exceeded by ${file.name}`,
+                );
                 return false;
             }
 
@@ -132,6 +136,7 @@ export default {
             this.formData = new FormData();
             this.succesfull = 0;
         },
+
     },
 
     render() {
