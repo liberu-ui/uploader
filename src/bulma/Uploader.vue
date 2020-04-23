@@ -2,7 +2,9 @@
     <core-uploader v-bind="$attrs"
         v-on="$listeners"
         ref="uploader">
-        <template v-slot:default="{ label, compact, inputBindings, inputEvents, controlEvents }">
+        <template v-slot:default="{
+                compact, controlEvents, files, inputBindings, inputEvents, label, manual,
+            }">
             <form class="is-marginless"
                 @submit.prevent>
                 <input class="is-hidden"
@@ -13,11 +15,12 @@
                     <a :class="['file', {'is-small': isSmall}, {'is-large': isLarge}]"
                         v-on="controlEvents">
                         <span :class="['file-cta', {'is-rounded': isRounded}]">
-                            <span class="has-margin-right-small" v-if="!compact">
-                                {{ label }}…
-                            </span>
-                            <span class="file-icon is-marginless">
+                            <span class="file-icon"
+                                v-if="!manual || files">
                                 <fa icon="upload"/>
+                            </span>
+                            <span class="file-label" v-if="!compact">
+                                {{ label }}
                             </span>
                         </span>
                     </a>

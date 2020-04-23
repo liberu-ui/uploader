@@ -7,43 +7,60 @@ export default {
     inject: ['errorHandler'],
 
     props: {
+        compact: {
+            default: false,
+            type: Boolean,
+        },
         fileKey: {
-            type: String,
             default: 'file',
+            type: String,
         },
         fileSizeLimit: {
-            type: Number,
             default: 20 * 1024 * 1024,
+            type: Number,
         },
         i18n: {
+            default: (v) => v,
             type: Function,
-            default: v => v,
+        },
+        label: {
+            default: null,
+            type: String,
+        },
+        manual: {
+            default: false,
+            type: Boolean,
         },
         multiple: {
-            type: Boolean,
             default: false,
+            type: Boolean,
         },
         params: {
-            type: Object,
             default: null,
+            type: Object,
         },
         url: {
-            type: String,
             required: true,
-        },
-        compact: {
-            type: Boolean,
-            default: false,
+            type: String,
         },
     },
 
     data: () => ({
         formData: new FormData(),
         succesfull: 0,
+        files: false,
     }),
 
     computed: {
-        label() {
+        displayLabel() {
+            if (this.manual && this.files) {
+                return this.i18n('Upload');
+            }
+
+            if (this.label) {
+                return this.label;
+            }
+
             return this.multiple
                 ? this.i18n('File(s)')
                 : this.i18n('File');
@@ -57,6 +74,14 @@ export default {
         browseFiles() {
             this.input.click();
             this.$emit('open-file-browser');
+        },
+        onChange(event) {
+            if (!this.manual) {
+                this.upload();
+            } else {
+                this.files = true;
+                this.$emit('change', event);
+            }
         },
         upload() {
             this.$emit('upload-start');
@@ -76,7 +101,7 @@ export default {
 
                 if (status === 422) {
                     Object.keys(data.errors)
-                        .forEach(key => this.$toastr.error(data.errors[key][0]));
+                        .forEach((key) => this.$toastr.error(data.errors[key][0]));
                     return;
                 }
 
@@ -135,26 +160,30 @@ export default {
             this.$el.reset();
             this.formData = new FormData();
             this.succesfull = 0;
+            this.files = false;
         },
 
     },
 
     render() {
         return this.$scopedSlots.default({
-            label: this.label,
-            multiple: this.multiple,
-            upload: this.upload,
             compact: this.compact,
+            controlEvents: {
+                click: this.browseFiles,
+            },
+            files: this.files,
             inputBindings: {
                 multiple: this.multiple,
                 type: 'file',
             },
             inputEvents: {
-                change: this.upload,
+                change: this.onChange,
+                input: (event) => this.$emit('input', event.target.value),
             },
-            controlEvents: {
-                click: this.browseFiles,
-            },
+            label: this.displayLabel,
+            multiple: this.multiple,
+            manual: this.manual,
+            upload: this.upload,
         });
     },
 };
