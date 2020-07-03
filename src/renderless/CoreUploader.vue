@@ -4,7 +4,7 @@ import formatBytes from '../helpers/formatBytes';
 export default {
     name: 'CoreUploader',
 
-    inject: ['errorHandler'],
+    inject: ['errorHandler', 'toastr'],
 
     props: {
         compact: {
@@ -101,7 +101,7 @@ export default {
 
                 if (status === 422) {
                     Object.keys(data.errors)
-                        .forEach((key) => this.$toastr.error(data.errors[key][0]));
+                        .forEach((key) => this.toastr.error(data.errors[key][0]));
                     return;
                 }
 
@@ -148,7 +148,7 @@ export default {
         },
         sizeCheckPasses(file) {
             if (file.size > this.fileSizeLimit) {
-                this.$toastr.warning(
+                this.toastr.warning(
                     `File size Limit of ${formatBytes(this.fileSizeLimit, 2)} exceeded by ${file.name}`,
                 );
                 return false;
