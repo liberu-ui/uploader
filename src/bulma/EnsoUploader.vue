@@ -1,6 +1,6 @@
 <template>
-    <uploader :i18n="i18n"
-        v-bind="$attrs"
+    <uploader v-bind="$attrs"
+        :i18n="i18n"
         v-on="$listeners"
         ref="uploader"/>
 </template>
@@ -19,6 +19,6 @@ export default {
         browseFiles() {
             this.$refs.uploader.browseFiles();
         },
-    }
+    },
 };
 </script>
