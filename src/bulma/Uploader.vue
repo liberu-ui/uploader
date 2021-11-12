@@ -2,7 +2,7 @@
     <core-uploader v-bind="$attrs"
         v-on="$listeners"
         ref="uploader">
-        <template v-slot:default="{
+        <template #:default="{
                 compact, controlEvents, files, inputBindings, inputEvents, label, manual,
             }">
             <form class="is-marginless"
