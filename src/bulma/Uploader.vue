@@ -1,5 +1,5 @@
 <template>
-    <core-uploader v-bind="$attrs"   
+    <core-uploader v-bind="$attrs"
         ref="uploader">
         <template #default="{
                 compact, controlEvents, files, inputBindings, inputEvents, label, manual,
@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
 import CoreUploader from '../renderless/CoreUploader.vue';
@@ -39,7 +40,7 @@ library.add(faUpload);
 export default {
     name: 'Uploader',
 
-    components: { CoreUploader },
+    components: { CoreUploader, Fa },
 
     props: {
         isLarge: {
