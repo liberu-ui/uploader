@@ -1,7 +1,6 @@
 <template>
     <uploader v-bind="$attrs"
-        :i18n="i18n"
-        v-on="$listeners"
+        :i18n="i18n"   
         ref="uploader"/>
 </template>
 

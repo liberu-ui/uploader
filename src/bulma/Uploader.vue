@@ -1,8 +1,7 @@
 <template>
-    <core-uploader v-bind="$attrs"
-        v-on="$listeners"
+    <core-uploader v-bind="$attrs"   
         ref="uploader">
-        <template #:default="{
+        <template #default="{
                 compact, controlEvents, files, inputBindings, inputEvents, label, manual,
             }">
             <form class="is-marginless"

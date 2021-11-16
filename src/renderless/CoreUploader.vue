@@ -166,7 +166,7 @@ export default {
     },
 
     render() {
-        return this.$scopedSlots.default({
+        return this.$slots.default({
             compact: this.compact,
             controlEvents: {
                 click: this.browseFiles,
