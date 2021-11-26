@@ -1,11 +1,11 @@
 <template>
-    <core-uploader v-bind="$attrs"
-        ref="uploader">
-        <template #default="{
+    <form class="is-marginless"
+        @submit.prevent>
+        <core-uploader v-bind="$attrs"
+            ref="uploader">
+            <template #default="{
                 compact, controlEvents, files, inputBindings, inputEvents, label, manual,
             }">
-            <form class="is-marginless"
-                @submit.prevent>
                 <input class="is-hidden"
                     v-bind="inputBindings"
                     v-on="inputEvents">
@@ -24,9 +24,9 @@
                         </span>
                     </a>
                 </slot>
-            </form>
-        </template>
-    </core-uploader>
+            </template>
+        </core-uploader>
+    </form>
 </template>
 
 <script>
