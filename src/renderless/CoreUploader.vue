@@ -45,6 +45,11 @@ export default {
         },
     },
 
+    emits: [
+        'change', 'input', 'open-file-browser', 'upload-start',
+        'upload-successful', 'upload-error',
+    ],
+
     data: () => ({
         formData: new FormData(),
         succesfull: 0,
@@ -66,7 +71,7 @@ export default {
                 : this.i18n('File');
         },
         input() {
-            return !!this.$el && this.$el.querySelector('input');
+            return !!this.$parent.$el && this.$parent.$el.querySelector('input');
         },
     },
 
@@ -157,7 +162,7 @@ export default {
             return true;
         },
         reset() {
-            this.$el.reset();
+            this.$parent.$el.reset();
             this.formData = new FormData();
             this.succesfull = 0;
             this.files = false;
