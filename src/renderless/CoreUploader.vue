@@ -50,6 +50,8 @@ export default {
         'upload-successful', 'upload-error',
     ],
 
+    inheritAttrs: false,
+
     data: () => ({
         formData: new FormData(),
         succesfull: 0,
