@@ -19,6 +19,10 @@ export default {
             default: 20 * 1024 * 1024,
             type: Number,
         },
+        http: {
+            required: true,
+            type: Function,
+        },
         i18n: {
             default: (v) => v,
             type: Function,
@@ -98,7 +102,7 @@ export default {
                 return;
             }
 
-            axios.post(this.url, this.formData).then((response) => {
+            this.http.post(this.url, this.formData).then((response) => {
                 this.reset();
                 this.$emit('upload-successful', response.data);
             }).catch((error) => {
