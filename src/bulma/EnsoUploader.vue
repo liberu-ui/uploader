@@ -1,5 +1,5 @@
 <template>
-    <uploader v-bind="$attrs"
+    <uploader
         :http="http"
         :i18n="i18n"
         ref="uploader"/>
