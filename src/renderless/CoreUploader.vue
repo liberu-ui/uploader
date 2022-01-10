@@ -6,6 +6,8 @@ export default {
 
     inject: ['errorHandler', 'toastr'],
 
+    inheritAttrs: false,
+
     props: {
         compact: {
             default: false,
@@ -24,7 +26,7 @@ export default {
             type: Function,
         },
         i18n: {
-            default: (v) => v,
+            default: v => v,
             type: Function,
         },
         label: {
@@ -53,8 +55,6 @@ export default {
         'change', 'input', 'open-file-browser', 'upload-start',
         'upload-successful', 'upload-error',
     ],
-
-    inheritAttrs: false,
 
     data: () => ({
         formData: new FormData(),
@@ -102,17 +102,17 @@ export default {
                 return;
             }
 
-            this.http.post(this.url, this.formData).then((response) => {
+            this.http.post(this.url, this.formData).then(response => {
                 this.reset();
                 this.$emit('upload-successful', response.data);
-            }).catch((error) => {
+            }).catch(error => {
                 this.reset();
                 this.$emit('upload-error');
                 const { data, status } = error.response;
 
                 if (status === 422) {
                     Object.keys(data.errors)
-                        .forEach((key) => this.toastr.error(data.errors[key][0]));
+                        .forEach(key => this.toastr.error(data.errors[key][0]));
                     return;
                 }
 
@@ -189,7 +189,7 @@ export default {
             },
             inputEvents: {
                 change: this.onChange,
-                input: (event) => this.$emit('input', event.target.value),
+                input: event => this.$emit('input', event.target.value),
             },
             label: this.displayLabel,
             multiple: this.multiple,
