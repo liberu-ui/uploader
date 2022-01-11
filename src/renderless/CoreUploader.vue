@@ -6,6 +6,8 @@ export default {
 
     inject: ['errorHandler', 'toastr'],
 
+    inheritAttrs: false,
+
     props: {
         compact: {
             default: false,
@@ -19,8 +21,12 @@ export default {
             default: 20 * 1024 * 1024,
             type: Number,
         },
+        http: {
+            required: true,
+            type: Function,
+        },
         i18n: {
-            default: (v) => v,
+            default: v => v,
             type: Function,
         },
         label: {
@@ -45,6 +51,11 @@ export default {
         },
     },
 
+    emits: [
+        'change', 'input', 'open-file-browser', 'upload-start',
+        'upload-successful', 'upload-error',
+    ],
+
     data: () => ({
         formData: new FormData(),
         succesfull: 0,
@@ -66,7 +77,7 @@ export default {
                 : this.i18n('File');
         },
         input() {
-            return !!this.$el && this.$el.querySelector('input');
+            return !!this.$parent.$el && this.$parent.$el.querySelector('input');
         },
     },
 
@@ -91,17 +102,17 @@ export default {
                 return;
             }
 
-            axios.post(this.url, this.formData).then((response) => {
+            this.http.post(this.url, this.formData).then(response => {
                 this.reset();
                 this.$emit('upload-successful', response.data);
-            }).catch((error) => {
+            }).catch(error => {
                 this.reset();
                 this.$emit('upload-error');
                 const { data, status } = error.response;
 
                 if (status === 422) {
                     Object.keys(data.errors)
-                        .forEach((key) => this.toastr.error(data.errors[key][0]));
+                        .forEach(key => this.toastr.error(data.errors[key][0]));
                     return;
                 }
 
@@ -157,7 +168,7 @@ export default {
             return true;
         },
         reset() {
-            this.$el.reset();
+            this.$parent.$el.reset();
             this.formData = new FormData();
             this.succesfull = 0;
             this.files = false;
@@ -166,7 +177,7 @@ export default {
     },
 
     render() {
-        return this.$scopedSlots.default({
+        return this.$slots.default({
             compact: this.compact,
             controlEvents: {
                 click: this.browseFiles,
@@ -178,7 +189,7 @@ export default {
             },
             inputEvents: {
                 change: this.onChange,
-                input: (event) => this.$emit('input', event.target.value),
+                input: event => this.$emit('input', event.target.value),
             },
             label: this.displayLabel,
             multiple: this.multiple,

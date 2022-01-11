@@ -1,12 +1,11 @@
 <template>
-    <core-uploader v-bind="$attrs"
-        v-on="$listeners"
-        ref="uploader">
-        <template v-slot:default="{
+    <form class="is-marginless"
+        @submit.prevent>
+        <core-uploader v-bind="$attrs"
+            ref="uploader">
+            <template #default="{
                 compact, controlEvents, files, inputBindings, inputEvents, label, manual,
             }">
-            <form class="is-marginless"
-                @submit.prevent>
                 <input class="is-hidden"
                     v-bind="inputBindings"
                     v-on="inputEvents">
@@ -25,12 +24,13 @@
                         </span>
                     </a>
                 </slot>
-            </form>
-        </template>
-    </core-uploader>
+            </template>
+        </core-uploader>
+    </form>
 </template>
 
 <script>
+import { FontAwesomeIcon as Fa } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUpload } from '@fortawesome/free-solid-svg-icons';
 import CoreUploader from '../renderless/CoreUploader.vue';
@@ -40,7 +40,7 @@ library.add(faUpload);
 export default {
     name: 'Uploader',
 
-    components: { CoreUploader },
+    components: { CoreUploader, Fa },
 
     props: {
         isLarge: {

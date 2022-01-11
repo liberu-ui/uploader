@@ -1,7 +1,7 @@
 <template>
-    <uploader v-bind="$attrs"
+    <uploader
+        :http="http"
         :i18n="i18n"
-        v-on="$listeners"
         ref="uploader"/>
 </template>
 
@@ -13,7 +13,7 @@ export default {
 
     components: { Uploader },
 
-    inject: ['i18n'],
+    inject: ['http', 'i18n'],
 
     methods: {
         browseFiles() {
