@@ -1,6 +1,6 @@
 {
   "name": "@enso-ui/uploader",
-  "version": "2.0.13",
+  "version": "2.0.14",
   "description": "File Uploader",
   "main": "bulma/index.js",
   "scripts": {
