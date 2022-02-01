@@ -1,7 +1,12 @@
 <template>
     <uploader :http="http"
         :i18n="i18n"
-        ref="uploader"/>
+        ref="uploader">
+        <template #control="props">
+            <slot name="control"
+                v-bind="props"/>
+        </template>
+    </uploader>
 </template>
 
 <script>
