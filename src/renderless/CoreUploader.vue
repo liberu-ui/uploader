@@ -64,6 +64,10 @@ export default {
 
     computed: {
         displayLabel() {
+            if (this.compact) {
+                return null;
+            }
+
             if (this.manual && this.files) {
                 return this.i18n('Upload');
             }
@@ -178,7 +182,6 @@ export default {
 
     render() {
         return this.$slots.default({
-            compact: this.compact,
             controlEvents: {
                 click: this.browseFiles,
             },

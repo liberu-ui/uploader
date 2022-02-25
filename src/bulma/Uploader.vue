@@ -4,7 +4,7 @@
         <core-uploader v-bind="$attrs"
             ref="uploader">
             <template #default="{
-                compact, controlEvents, files, inputBindings, inputEvents, label, manual,
+                controlEvents, files, inputBindings, inputEvents, label, manual,
             }">
                 <input class="is-hidden"
                     v-bind="inputBindings"
@@ -13,13 +13,21 @@
                     :control-events="controlEvents">
                     <a :class="['file', {'is-small': isSmall}, {'is-large': isLarge}]"
                         v-on="controlEvents">
-                        <span :class="['file-cta', {'is-rounded': isRounded}]">
-                            <span class="file-icon"
+                        <span :class="['file-cta', {'is-rounded': isRounded}]"
+                            v-if="label">
+                            <span class="file-icon mx-a"
                                 v-if="!manual || files">
                                 <fa icon="upload"/>
                             </span>
-                            <span class="file-label" v-if="!compact">
+                            <span class="file-label">
                                 {{ label }}
+                            </span>
+                        </span>
+                        <span class="button"
+                            v-else>
+                            <span class="icon"
+                                v-if="!manual || files">
+                                <fa icon="upload"/>
                             </span>
                         </span>
                     </a>
