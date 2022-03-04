@@ -15,7 +15,7 @@
                         v-on="controlEvents">
                         <span :class="['file-cta', {'is-rounded': isRounded}]"
                             v-if="label">
-                            <span class="file-icon mx-a"
+                            <span class="file-icon"
                                 v-if="!manual || files">
                                 <fa icon="upload"/>
                             </span>
