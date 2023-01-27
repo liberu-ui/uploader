@@ -1,5 +1,5 @@
 {
-  "name": "@enso-ui/uploader",
+  "name": "@cgdsoftware/uploader",
   "version": "2.0.16",
   "description": "File Uploader",
   "main": "bulma/index.js",
