@@ -116,7 +116,7 @@ export default {
 
                 if (status === 422) {
                     Object.keys(data.errors)
-                        .forEach(key => this.toastr.error(data.errors[key][0]));
+                        .forEach(key => this.toastr.warning(data.errors[key][0]));
                     return;
                 }
 
