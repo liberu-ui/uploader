@@ -1,5 +1,5 @@
 {
-  "name": "@cgdsoftware/uploader",
+  "name": "@liberu-ui/uploader",
   "version": "2.0.16",
   "description": "File Uploader",
   "main": "bulma/index.js",
