@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enso-ui/uploader.git"
+    "url": "git+https://github.com/liberu-ui/uploader.git"
   },
   "keywords": [
     "uploader",
@@ -17,9 +17,9 @@
   "author": "Adrian Ocneanu <aocneanu@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/enso-ui/uploader/issues"
+    "url": "https://github.com/liberu-ui/uploader/issues"
   },
-  "homepage": "https://github.com/enso-ui/uploader#readme",
+  "homepage": "https://github.com/liberu-ui/uploader#readme",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.2",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",

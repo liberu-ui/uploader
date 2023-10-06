@@ -1,10 +1,10 @@
 # Uploader
 
-![npm license](https://img.shields.io/npm/l/@enso-ui/uploader.svg) 
-![npm download](https://img.shields.io/npm/dm/@enso-ui/uploader.svg) 
-![GitHub top language](https://img.shields.io/github/languages/top/enso-ui/uploader.svg) 
-![GitHub issues](https://img.shields.io/github/issues/enso-ui/uploader.svg) 
-![npm version](https://img.shields.io/npm/v/@enso-ui/uploader.svg) 
+![npm license](https://img.shields.io/npm/l/@liberu-ui/uploader.svg) 
+![npm download](https://img.shields.io/npm/dm/@liberu-ui/uploader.svg) 
+![GitHub top language](https://img.shields.io/github/languages/top/liberu-ui/uploader.svg) 
+![GitHub issues](https://img.shields.io/github/issues/liberu-ui/uploader.svg) 
+![npm version](https://img.shields.io/npm/v/@liberu-ui/uploader.svg) 
 
 Integrated file uploader
 
